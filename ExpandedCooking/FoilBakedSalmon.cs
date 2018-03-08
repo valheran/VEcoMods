@@ -19,13 +19,13 @@ namespace Eco.Mods.TechTree
         FoodItem            
     {
         public override string FriendlyName                     { get { return "Foil Baked Salmon"; } }
-        public override string Description                      { get { return "A thick stew chock-full of fish, camas, and corn. A suprisingly good combination."; } }
+        public override string Description                      { get { return "Whole salmon baked with a generous pat of butter."; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 5, Protein = 13, Vitamins = 8};
-        public override float Calories                          { get { return 1080; } }
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 10, Protein = 14, Vitamins = 0};
+        public override float Calories                          { get { return 630; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
-    [RequiresSkill(typeof(CampfireCreationsSkill), 4)] 
+    [RequiresSkill(typeof(BasicBakingSkill), 2)] 
     public class FoilBakedSalmonRecipe : Recipe
     {
         public FoilBakedSalmonRecipe()
@@ -36,14 +36,13 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FishScrapsItem>(typeof(CampfireCreationsEfficiencySkill), 30, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 40, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<RawFishItem>(typeof(BasicBakingEfficiencySkill), 5, BasicBakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<TallowItem>(typeof(BasicBakingEfficiencySkill), 1, BasicBakingEfficiencySkill.MultiplicativeStrategy),
+                
             };
             this.Initialize("Foil Baked Salmon", typeof(FoilBakedSalmonRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(FoilBakedSalmonRecipe), this.UILink(), 9, typeof(CampfireCreationsSpeedSkill));
-            CraftingComponent.AddRecipe(typeof(CampfireObject), this);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(FoilBakedSalmonRecipe), this.UILink(), 5, typeof(BasicBakingSpeedSkill));
+            CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }
 }

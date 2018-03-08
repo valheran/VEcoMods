@@ -21,11 +21,11 @@ namespace Eco.Mods.TechTree
         public override string FriendlyName                     { get { return "Fish n Chups"; } }
         public override string Description                      { get { return "Battered fish fillets with crispy chips"; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 5, Protein = 13, Vitamins = 8};
-        public override float Calories                          { get { return 1080; } }
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 11, Fat = 12, Protein = 15, Vitamins = 4};
+        public override float Calories                          { get { return 630; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
-    [RequiresSkill(typeof(CampfireCreationsSkill), 4)] 
+    [RequiresSkill(typeof(CulinaryArtsSkill), 2)] 
     public class FishnChupsRecipe : Recipe
     {
         public FishnChupsRecipe()
@@ -36,14 +36,14 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FishScrapsItem>(typeof(CampfireCreationsEfficiencySkill), 30, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 40, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<OilItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<CamasBulbItem>(typeof(CulinaryArtsEfficiencySkill), 24, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FlourItem>(typeof(CulinaryArtsEfficiencySkill), 12, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PreparedFishItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
             };
             this.Initialize("Fish n Chups", typeof(FishnChupsRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(FishnChupsRecipe), this.UILink(), 9, typeof(CampfireCreationsSpeedSkill));
-            CraftingComponent.AddRecipe(typeof(CampfireObject), this);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(FishnChupsRecipe), this.UILink(), 5, typeof(CulinaryArtsSpeedSkill));
+            CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }
 }

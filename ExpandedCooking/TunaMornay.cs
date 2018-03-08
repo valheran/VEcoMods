@@ -25,7 +25,7 @@ namespace Eco.Mods.TechTree
         public override float Calories                          { get { return 1170; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
-    [RequiresSkill(typeof(BakingSkill), 4)] 
+    [RequiresSkill(typeof(BasicBakingSkill), 4)] 
     public class TunaMornayPieRecipe : Recipe
     {
         public TunaMornayPieRecipe()
@@ -36,13 +36,13 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PreparedFishItem>(typeof(BakingEfficiencySkill), 5, BakingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FlourItem>(typeof(BakingEfficiencySkill), 10, BakingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<TallowItem>(typeof(BakingEfficiencySkill), 5, BakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PreparedFishItem>(typeof(BasicBakingEfficiencySkill), 5, BasicBakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FlourItem>(typeof(BasicBakingEfficiencySkill), 10, BasicBakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<TallowItem>(typeof(BasicBakingEfficiencySkill), 5, BasicBakingEfficiencySkill.MultiplicativeStrategy),
                 
             };
             this.Initialize("Tuna Mornay Pie", typeof(TunaMornayPieRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(TunaMornayPieRecipe), this.UILink(), 4, typeof(BakingSpeedSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(TunaMornayPieRecipe), this.UILink(), 4, typeof(BasicBakingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

@@ -19,13 +19,13 @@ namespace Eco.Mods.TechTree
         FoodItem            
     {
         public override string FriendlyName                     { get { return "Seafood Gumbo"; } }
-        public override string Description                      { get { return "A thick stew chock-full of fish, camas, and corn. A suprisingly good combination."; } }
+        public override string Description                      { get { return "Spicy seafood stew with all the trimmings."; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 5, Protein = 13, Vitamins = 8};
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 7, Fat = 14, Protein = 18, Vitamins = 10};
         public override float Calories                          { get { return 1080; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
-    [RequiresSkill(typeof(CampfireCreationsSkill), 4)] 
+    [RequiresSkill(typeof(CulinaryArtsSkill), 4)] 
     public class SeafoodGumboRecipe : Recipe
     {
         public SeafoodGumboRecipe()
@@ -36,14 +36,17 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FishScrapsItem>(typeof(CampfireCreationsEfficiencySkill), 30, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 40, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<InfusedOilItem>(typeof(CulinaryArtsEfficiencySkill), 4, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FishScrapsItem>(typeof(CulinaryArtsEfficiencySkill), 20, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<VegetableMedleyItem>(typeof(CulinaryArtsEfficiencySkill), 5, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<SashimiFishItem>(typeof(CulinaryArtsEfficiencySkill), 8, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<SashimiFishItem>(typeof(CulinaryArtsEfficiencySkill), 8, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<ClamItem>(typeof(CulinaryArtsEfficiencySkill), 4, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<UrchinItem>(typeof(CulinaryArtsEfficiencySkill), 4, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
             };
             this.Initialize("Seafood Gumbo", typeof(SeafoodGumboRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(SeafoodGumboRecipe), this.UILink(), 9, typeof(CampfireCreationsSpeedSkill));
-            CraftingComponent.AddRecipe(typeof(CampfireObject), this);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(SeafoodGumboRecipe), this.UILink(), 18, typeof(CulinaryArtsSpeedSkill));
+            CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }
 }

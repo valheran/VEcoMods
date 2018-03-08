@@ -19,13 +19,13 @@ namespace Eco.Mods.TechTree
         FoodItem            
     {
         public override string FriendlyName                     { get { return "Chirashi Sushi"; } }
-        public override string Description                      { get { return "A bright bowl of rice goodness"; } }
+        public override string Description                      { get { return "Cubes of sashimi seafood and assorted greens served on a bed of vinegared rice"; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 5, Protein = 13, Vitamins = 8};
-        public override float Calories                          { get { return 1080; } }
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 10, Fat = 11, Protein = 12, Vitamins = 6};
+        public override float Calories                          { get { return 540; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
-    [RequiresSkill(typeof(CampfireCreationsSkill), 4)] 
+    [RequiresSkill(typeof(CulinaryArtsSkill), 3)] 
     public class ChirashiSushiRecipe : Recipe
     {
         public ChirashiSushiRecipe()
@@ -36,14 +36,14 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FishScrapsItem>(typeof(CampfireCreationsEfficiencySkill), 30, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 40, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<SashimiFishItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<KelpItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FireweedShootsItem>(typeof(CulinaryArtsEfficiencySkill), 5, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<RiceItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
             };
             this.Initialize("Chirashi Sushi", typeof(ChirashiSushiRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(ChirashiSushiRecipe), this.UILink(), 9, typeof(CampfireCreationsSpeedSkill));
-            CraftingComponent.AddRecipe(typeof(CampfireObject), this);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(ChirashiSushiRecipe), this.UILink(), 6, typeof(CulinaryArtsSpeedSkill));
+            CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }
 }

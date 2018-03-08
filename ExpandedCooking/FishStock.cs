@@ -19,13 +19,13 @@ namespace Eco.Mods.TechTree
         FoodItem            
     {
         public override string FriendlyName                     { get { return "Fish Stock"; } }
-        public override string Description                      { get { return "A thick stew chock-full of fish, camas, and corn. A suprisingly good combination."; } }
+        public override string Description                      { get { return "Tasty, but mostly used as a base for more complex dishes"; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 5, Protein = 13, Vitamins = 8};
-        public override float Calories                          { get { return 1080; } }
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 4, Protein = 6, Vitamins = 4};
+        public override float Calories                          { get { return 630; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
-    [RequiresSkill(typeof(CampfireCreationsSkill), 4)] 
+    [RequiresSkill(typeof(HomeCookingSkill), 2)] 
     public class FishStockRecipe : Recipe
     {
         public FishStockRecipe()
@@ -36,14 +36,12 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FishScrapsItem>(typeof(CampfireCreationsEfficiencySkill), 30, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 40, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FishScrapsItem>(typeof(HomeCookingEfficiencySkill), 20, HomeCookingEfficiencySkill.MultiplicativeStrategy),
+                
             };
             this.Initialize("Fish Stock", typeof(FishStockRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(FishStockRecipe), this.UILink(), 9, typeof(CampfireCreationsSpeedSkill));
-            CraftingComponent.AddRecipe(typeof(CampfireObject), this);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(FishStockRecipe), this.UILink(), 18, typeof(HomeCookingSpeedSkill));
+            CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }
     }
 }

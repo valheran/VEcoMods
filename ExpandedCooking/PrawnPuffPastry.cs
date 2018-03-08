@@ -19,13 +19,13 @@ namespace Eco.Mods.TechTree
         FoodItem            
     {
         public override string FriendlyName                     { get { return "Prawn Puff Pastry"; } }
-        public override string Description                      { get { return "A thick stew chock-full of fish, camas, and corn. A suprisingly good combination."; } }
+        public override string Description                      { get { return "Delicate puff pastry stuffed with king prawns."; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 5, Protein = 13, Vitamins = 8};
-        public override float Calories                          { get { return 1080; } }
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 10, Fat =10, Protein = 18, Vitamins = 8};
+        public override float Calories                          { get { return 1260; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
-    [RequiresSkill(typeof(CampfireCreationsSkill), 4)] 
+    [RequiresSkill(typeof(LeavenedBakingSkill), 4)] 
     public class PrawnPuffPastryRecipe : Recipe
     {
         public PrawnPuffPastryRecipe()
@@ -36,14 +36,14 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FishScrapsItem>(typeof(CampfireCreationsEfficiencySkill), 30, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 40, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<SashimiFishItem>(typeof(LeavenedBakingEfficiencySkill), 5, LeavenedBakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FlourItem>(typeof(LeavenedBakingEfficiencySkill), 15, LeavenedBakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<YeastItem>(typeof(LeavenedBakingEfficiencySkill), 5, LeavenedBakingEfficiencySkill.MultiplicativeStrategy),
+
             };
             this.Initialize("Prawn Puff Pastry", typeof(PrawnPuffPastryRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(PrawnPuffPastryRecipe), this.UILink(), 9, typeof(CampfireCreationsSpeedSkill));
-            CraftingComponent.AddRecipe(typeof(CampfireObject), this);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(PrawnPuffPastryRecipe), this.UILink(), 7, typeof(LeavenedBakingSpeedSkill));
+            CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }
 }

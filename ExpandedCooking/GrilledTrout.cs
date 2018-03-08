@@ -21,7 +21,7 @@ namespace Eco.Mods.TechTree
         public override string FriendlyName                     { get { return "Grilled Trout"; } }
         public override string Description                      { get { return "Generous fillets of fish wrapped in fireweed cooked on the coals."; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 9, Protein = 15, Vitamins = 2};
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 9, Protein = 15, Vitamins = 3};
         public override float Calories                          { get { return 900; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
@@ -36,7 +36,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<RawFishItem>(typeof(CampfireCreationsEfficiencySkill), 6, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PreparedFishItem>(typeof(CampfireCreationsEfficiencySkill), 6, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<FireweedShootsItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<TomatoItem>(typeof(CampfireCreationsEfficiencySkill), 3, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
