@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         public override string FriendlyName                     { get { return "Poached Salmon"; } }
         public override string Description                      { get { return "Sous vide salmon belly."; } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 5, Protein = 13, Vitamins = 8};
-        public override float Calories                          { get { return 1080; } }
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 14, Protein = 21, Vitamins = 0};
+        public override float Calories                          { get { return 540; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
     [RequiresSkill(typeof(HomeCookingSkill), 3)] 
