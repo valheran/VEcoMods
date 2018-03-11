@@ -27,7 +27,7 @@ namespace Eco.Mods.TechTree
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
 
-    [RequiresSkill(typeof(MeatPrepSkill), 4)]    
+    [RequiresSkill(typeof(FishingSkill), 4)]    
     public partial class SashimiFishRecipe : Recipe
     {
         public SashimiFishRecipe()
