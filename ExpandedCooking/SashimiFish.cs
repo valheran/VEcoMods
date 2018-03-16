@@ -19,7 +19,7 @@ namespace Eco.Mods.TechTree
     public partial class SashimiFishItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Shashimi Fish"; } }
+        public override string FriendlyName                     { get { return "Sashimi Fish"; } }
         public override string Description                      { get { return "Delicate slivers of the choicest fish"; } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 9, Protein = 4, Vitamins = 0};
