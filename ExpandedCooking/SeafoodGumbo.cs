@@ -40,7 +40,6 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FishScrapsItem>(typeof(CulinaryArtsEfficiencySkill), 20, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<VegetableMedleyItem>(typeof(CulinaryArtsEfficiencySkill), 5, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<SashimiFishItem>(typeof(CulinaryArtsEfficiencySkill), 8, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<SashimiFishItem>(typeof(CulinaryArtsEfficiencySkill), 8, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<ClamItem>(typeof(CulinaryArtsEfficiencySkill), 4, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<UrchinItem>(typeof(CulinaryArtsEfficiencySkill), 4, CulinaryArtsEfficiencySkill.MultiplicativeStrategy),
             };
