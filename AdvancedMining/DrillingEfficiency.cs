@@ -18,7 +18,7 @@ namespace Eco.Mods.TechTree
     using Gameplay.Systems.Tooltip;
 
     [Serialized]
-    [RequiresSkill(typeof(AdvancedMiningSkill), 1)]    
+    [RequiresSkill(typeof(DrillingSkill), 1)]    
     public partial class DrillingEfficiencySkill : Skill
     {
         public override string FriendlyName { get { return "Drilling Efficiency"; } }

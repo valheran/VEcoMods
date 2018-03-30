@@ -24,7 +24,7 @@ namespace Eco.Mods.TechTree
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<BlastingPowderItem>(),          
+                new CraftingElement<BlastingPowderItem>(2),           
             
             };
             this.Ingredients = new CraftingElement[]

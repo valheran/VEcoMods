@@ -24,12 +24,13 @@ namespace Eco.Mods.TechTree
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<PotashItem>(),          
+                new CraftingElement<PotashItem>(3),          
            
             };
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<KelpItem>(typeof(BlastingEfficiencySkill), 10, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<LogItem>(typeof(BlastingEfficiencySkill), 10, BlastingEfficiencySkill.MultiplicativeStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PotashRecipe), Item.Get<PotashItem>().UILink(), 2, typeof(BlastingSpeedSkill));    
             this.Initialize("Potash", typeof(PotashRecipe));
@@ -46,7 +47,7 @@ namespace Eco.Mods.TechTree
     Item                                     
     {
         public override string FriendlyName { get { return "Potash"; } }
-        public override string Description { get { return "Concentrated Nitrates from seaweed ash"; } }
+        public override string Description { get { return "Concentrated Nitrates from seaweed and wood ash"; } }
 
     }
 
