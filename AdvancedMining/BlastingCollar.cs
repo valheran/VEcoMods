@@ -30,11 +30,13 @@ namespace Eco.Gameplay.Components
         private string message;
         public int blastingDepth;
         private Inventory storage;
+        private string style;
 
-        public void Initialize(Type[] BlastingTypeList, Inventory Storage)
+        public void Initialize(Type[] BlastingTypeList, Inventory Storage, String Style)
         {
             this.blastingTypeList = BlastingTypeList;
             this.storage = Storage;
+            this.style = Style;
         }
         //drillhole depth handling
         public float DrillDepth
@@ -53,7 +55,9 @@ namespace Eco.Gameplay.Components
         {
             //get collar position and facing direction
             Vector3i rung = Pos;
-            Vector3i facing = Dir.Round;
+            Vector3i facing = StyleSet(this.style, Dir);
+
+
 
 
 
@@ -148,7 +152,13 @@ namespace Eco.Gameplay.Components
                 }
             }
         }
-        
+        public static Vector3i StyleSet (String Style, Vector3 Dir)
+        {
+            if (Style == "hor") return Dir.Round;
+            if (Style == "inc") return Vector3i.Up;
+            if (Style == "dec") return Vector3i.Down;
+            else return Vector3i.Forward;
+        }
         public static DirectionAxis LookupDirectionAxis(Vector3i vec)
         {
                         
@@ -229,7 +239,7 @@ namespace Eco.Mods.TechTree
             storage.Initialize(1);
             
             storage.Storage.AddRestriction(new SpecificItemTypesRestriction(blastingTypeList));
-            this.GetComponent<DrillBlastComponent>().Initialize(blastingTypeList, storage.Storage);
+            this.GetComponent<DrillBlastComponent>().Initialize(blastingTypeList, storage.Storage, "hor");
             //this.GetComponent<BlastingSupplyComponent>().Initialize(1, blastingTypeList);
 
         }
@@ -275,6 +285,164 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BlastingCollarItem>().UILink(), value);
             this.CraftMinutes = value;
             this.Initialize("Blasting Collar", typeof(BlastingCollarRecipe));
+            CraftingComponent.AddRecipe(typeof(AnvilObject), this);
+        }
+    }
+
+    [Serialized]
+    [RequireComponent(typeof(DrillBlastComponent))]
+    //[RequireComponent(typeof(BlastingSupplyComponent))]
+    //[RequireComponent(typeof(FuelSupplyComponent))]
+    [RequireComponent(typeof(PropertyAuthComponent))]
+    [RequireComponent(typeof(PublicStorageComponent))]
+    public partial class BlastingCollarDecObject : WorldObject
+    {
+        public override string FriendlyName { get { return "Blasting Collar Declined"; } }
+
+
+        public bool IsDrillable;
+
+        private static Type[] blastingTypeList = new Type[]
+       {
+            typeof(DynamiteItem),
+            typeof(ANFOItem),
+
+       };
+
+        protected override void Initialize()
+        {
+
+
+
+            var storage = this.GetComponent<PublicStorageComponent>();
+            storage.Initialize(1);
+
+            storage.Storage.AddRestriction(new SpecificItemTypesRestriction(blastingTypeList));
+            this.GetComponent<DrillBlastComponent>().Initialize(blastingTypeList, storage.Storage, "dec");
+            //this.GetComponent<BlastingSupplyComponent>().Initialize(1, blastingTypeList);
+
+        }
+
+        public override void Destroy()
+        {
+            base.Destroy();
+        }
+
+    }
+    [Serialized]
+    public partial class BlastingCollarDecItem : WorldObjectItem<BlastingCollarDecObject>
+    {
+        public override string FriendlyName { get { return "Blasting Collar Declined"; } }
+        public override string Description { get { return "Used to keep open and access drillholes for blasting downwards."; } }
+
+        static BlastingCollarDecItem()
+        {
+
+        }
+
+    }
+
+
+    [RequiresSkill(typeof(DrillingSkill), 1)]
+    public partial class BlastingCollarDecRecipe : Recipe
+    {
+        public BlastingCollarDecRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<BlastingCollarDecItem>(),
+            };
+
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<IronIngotItem>(typeof(DrillingEfficiencySkill), 5, DrillingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PitchItem>(typeof(DrillingEfficiencySkill), 10, DrillingEfficiencySkill.MultiplicativeStrategy),
+
+            };
+            SkillModifiedValue value = new SkillModifiedValue(3, DrillingSpeedSkill.MultiplicativeStrategy, typeof(DrillingSpeedSkill), "craft time");
+            SkillModifiedValueManager.AddBenefitForObject(typeof(BlastingCollarDecRecipe), Item.Get<BlastingCollarDecItem>().UILink(), value);
+            SkillModifiedValueManager.AddSkillBenefit(Item.Get<BlastingCollarDecItem>().UILink(), value);
+            this.CraftMinutes = value;
+            this.Initialize("Blasting Collar", typeof(BlastingCollarDecRecipe));
+            CraftingComponent.AddRecipe(typeof(AnvilObject), this);
+        }
+    }
+
+    [Serialized]
+    [RequireComponent(typeof(DrillBlastComponent))]
+    //[RequireComponent(typeof(BlastingSupplyComponent))]
+    //[RequireComponent(typeof(FuelSupplyComponent))]
+    [RequireComponent(typeof(PropertyAuthComponent))]
+    [RequireComponent(typeof(PublicStorageComponent))]
+    public partial class BlastingCollarIncObject : WorldObject
+    {
+        public override string FriendlyName { get { return "Blasting Collar Inclined"; } }
+
+
+        public bool IsDrillable;
+
+        private static Type[] blastingTypeList = new Type[]
+       {
+            typeof(DynamiteItem),
+            typeof(ANFOItem),
+
+       };
+
+        protected override void Initialize()
+        {
+
+
+
+            var storage = this.GetComponent<PublicStorageComponent>();
+            storage.Initialize(1);
+
+            storage.Storage.AddRestriction(new SpecificItemTypesRestriction(blastingTypeList));
+            this.GetComponent<DrillBlastComponent>().Initialize(blastingTypeList, storage.Storage, "inc");
+            //this.GetComponent<BlastingSupplyComponent>().Initialize(1, blastingTypeList);
+
+        }
+
+        public override void Destroy()
+        {
+            base.Destroy();
+        }
+
+    }
+    [Serialized]
+    public partial class BlastingCollarIncItem : WorldObjectItem<BlastingCollarIncObject>
+    {
+        public override string FriendlyName { get { return "Blasting Collar Inclined"; } }
+        public override string Description { get { return "Used to keep open and access drillholes for blasting upwards."; } }
+
+        static BlastingCollarIncItem()
+        {
+
+        }
+
+    }
+
+
+    [RequiresSkill(typeof(DrillingSkill), 1)]
+    public partial class BlastingCollarIncRecipe : Recipe
+    {
+        public BlastingCollarIncRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<BlastingCollarIncItem>(),
+            };
+
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<IronIngotItem>(typeof(DrillingEfficiencySkill), 5, DrillingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PitchItem>(typeof(DrillingEfficiencySkill), 10, DrillingEfficiencySkill.MultiplicativeStrategy),
+
+            };
+            SkillModifiedValue value = new SkillModifiedValue(3, DrillingSpeedSkill.MultiplicativeStrategy, typeof(DrillingSpeedSkill), "craft time");
+            SkillModifiedValueManager.AddBenefitForObject(typeof(BlastingCollarIncRecipe), Item.Get<BlastingCollarIncItem>().UILink(), value);
+            SkillModifiedValueManager.AddSkillBenefit(Item.Get<BlastingCollarIncItem>().UILink(), value);
+            this.CraftMinutes = value;
+            this.Initialize("Blasting Collar", typeof(BlastingCollarIncRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

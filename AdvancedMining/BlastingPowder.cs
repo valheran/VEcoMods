@@ -29,8 +29,8 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PotashItem>(typeof(BlastingEfficiencySkill), 10, BlastingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CoalItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PotashItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<CoalItem>(typeof(BlastingEfficiencySkill), 2, BlastingEfficiencySkill.MultiplicativeStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BlastingPowderRecipe), Item.Get<BlastingPowderItem>().UILink(), 2, typeof(BlastingSpeedSkill));    
             this.Initialize("Blasting Powder", typeof(BlastingPowderRecipe));

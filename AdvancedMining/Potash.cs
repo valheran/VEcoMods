@@ -24,7 +24,7 @@ namespace Eco.Mods.TechTree
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<PotashItem>(3),          
+                new CraftingElement<PotashItem>(4),          
            
             };
             this.Ingredients = new CraftingElement[]
