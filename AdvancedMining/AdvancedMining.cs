@@ -16,6 +16,7 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Services;
     using Eco.Shared.Utils;
     using Gameplay.Systems.Tooltip;
+    using Eco.Mods;
 
     [Serialized]
     [RequiresSkill(typeof(MasonSkill), 0)]    

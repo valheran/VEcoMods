@@ -47,3 +47,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .vs
+testing
+obj
+bin
+Packages
+*.csproj
+*.csproj.user
+*.sln
+Properties

@@ -47,6 +47,8 @@ namespace Eco.Mods.TechTree
         public override string FriendlyName { get { return "Detonator"; } }
         public override string Description { get { return "Control system for letting off the bang."; } }
         public override float DurabilityRate { get { return 0; } }
+        private static IDynamicValue skilledRepairCost = new ConstantValue(1);
+        public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
         //public override string LeftActionDescription { get { return "Check Loadout"; } }
         //public override string RighttActionDescription { get { return "Detonate"; } }
         public override InteractResult OnActLeft(InteractionContext context)

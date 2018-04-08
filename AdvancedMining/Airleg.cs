@@ -57,6 +57,8 @@ namespace Eco.Mods.TechTree
         private float depth;
         private string message;
         public override string LeftActionDescription { get { return "Drill"; } }
+        private static IDynamicValue skilledRepairCost = new ConstantValue(1);
+        public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
 
 
 
@@ -75,11 +77,11 @@ namespace Eco.Mods.TechTree
                         this.depth = (context.Target as WorldObject).GetComponent<DrillBlastComponent>().DrillDepth;
                         this.message = string.Format("Drilled to {0}", this.depth);
                         this.BurnCalories(context.Player);
-                        context.Player.SendTemporaryMessage(this.message, ChatCategory.Info);
+                        context.Player.SendTemporaryMessageLoc(this.message, ChatCategory.Info);
                     }
                     else
                     {
-                        context.Player.SendTemporaryMessage("You have drilled as far as you can go", ChatCategory.Info);
+                        context.Player.SendTemporaryMessageLoc("You have drilled as far as you can go", ChatCategory.Info);
                         return InteractResult.NoOp;
                     }
 

@@ -122,7 +122,7 @@ namespace Eco.Gameplay.Components
 
             if (storage.IsEmpty)
             {
-                player.SendTemporaryMessage("You have no Explosives loaded", ChatCategory.Info);
+                player.SendTemporaryMessageLoc("You have no Explosives loaded", ChatCategory.Info);
                 this.blastingDepth = 0;
                 return false;
             }
@@ -139,14 +139,14 @@ namespace Eco.Gameplay.Components
                 if (this.Explosive.IsFuel) //this shouldnt be necessary as there is inventory restrictions
                 {
                     this.message = string.Format("You have loaded {0} units of {1}", this.ExplosiveSupply, this.Explosive.Type.Name);
-                    player.SendTemporaryMessage(this.message, ChatCategory.Info);
+                    player.SendTemporaryMessageLoc(this.message, ChatCategory.Info);
                     this.blastingDepth = this.ExplosiveSupply;
                     return true;
                 }
                 else
                 {
 
-                    player.SendTemporaryMessage("You have no Explosives loaded", ChatCategory.Info);
+                    player.SendTemporaryMessageLoc("You have no Explosives loaded", ChatCategory.Info);
                     this.blastingDepth = 0;
                     return false;
                 }
@@ -280,10 +280,8 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PitchItem>(typeof(DrillingEfficiencySkill), 10, DrillingEfficiencySkill.MultiplicativeStrategy),
                  
             };
-            SkillModifiedValue value = new SkillModifiedValue(3, DrillingSpeedSkill.MultiplicativeStrategy, typeof(DrillingSpeedSkill), "craft time");
-            SkillModifiedValueManager.AddBenefitForObject(typeof(BlastingCollarRecipe), Item.Get<BlastingCollarItem>().UILink(), value);
-            SkillModifiedValueManager.AddSkillBenefit(Item.Get<BlastingCollarItem>().UILink(), value);
-            this.CraftMinutes = value;
+
+            this.CraftMinutes = CreateCraftTimeValue(typeof(BlastingCollarRecipe), Item.Get<BlastingCollarItem>().UILink(), 2, typeof(DrillingSpeedSkill));
             this.Initialize("Blasting Collar", typeof(BlastingCollarRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
@@ -359,10 +357,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PitchItem>(typeof(DrillingEfficiencySkill), 10, DrillingEfficiencySkill.MultiplicativeStrategy),
 
             };
-            SkillModifiedValue value = new SkillModifiedValue(3, DrillingSpeedSkill.MultiplicativeStrategy, typeof(DrillingSpeedSkill), "craft time");
-            SkillModifiedValueManager.AddBenefitForObject(typeof(BlastingCollarDecRecipe), Item.Get<BlastingCollarDecItem>().UILink(), value);
-            SkillModifiedValueManager.AddSkillBenefit(Item.Get<BlastingCollarDecItem>().UILink(), value);
-            this.CraftMinutes = value;
+            this.CraftMinutes = CreateCraftTimeValue(typeof(BlastingCollarDecRecipe), Item.Get<BlastingCollarDecItem>().UILink(), 2, typeof(DrillingSpeedSkill));
             this.Initialize("Blasting Collar", typeof(BlastingCollarDecRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
@@ -438,10 +433,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PitchItem>(typeof(DrillingEfficiencySkill), 10, DrillingEfficiencySkill.MultiplicativeStrategy),
 
             };
-            SkillModifiedValue value = new SkillModifiedValue(3, DrillingSpeedSkill.MultiplicativeStrategy, typeof(DrillingSpeedSkill), "craft time");
-            SkillModifiedValueManager.AddBenefitForObject(typeof(BlastingCollarIncRecipe), Item.Get<BlastingCollarIncItem>().UILink(), value);
-            SkillModifiedValueManager.AddSkillBenefit(Item.Get<BlastingCollarIncItem>().UILink(), value);
-            this.CraftMinutes = value;
+            this.CraftMinutes = CreateCraftTimeValue(typeof(BlastingCollarIncRecipe), Item.Get<BlastingCollarIncItem>().UILink(), 2, typeof(DrillingSpeedSkill));
             this.Initialize("Blasting Collar", typeof(BlastingCollarIncRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
