@@ -31,9 +31,9 @@
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<TailingsItem>(typeof(MetallurgyEfficiencySkill), 1, MetallurgyEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<TailingsItem>(typeof(MetallurgyEfficiencySkill), 1, MetallurgyEfficiencySkill.AdditiveStrategy),
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(TailingsLeachateRecipe), Item.Get<TailingsLeachateItem>().UILink(), 2, typeof(MetallurgySpeedSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(TailingsLeachateRecipe), Item.Get<TailingsLeachateItem>().UILink(), 4, typeof(MetallurgySpeedSkill));
             this.Initialize("Tailings Leachate", typeof(TailingsLeachateRecipe));
 
             CraftingComponent.AddRecipe(typeof(LeachingVatObject), this);

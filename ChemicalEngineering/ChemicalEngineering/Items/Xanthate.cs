@@ -31,7 +31,7 @@
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PetroleumItem>(typeof(IndustrialChemistryEfficiencySkill), 1, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PetroleumItem>(typeof(IndustrialChemistryEfficiencySkill), 1, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy), //add sulphuric if ever implement
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(XanthateRecipe), Item.Get<XanthateItem>().UILink(), 2, typeof(IndustrialChemistrySpeedSkill));
             this.Initialize("Xanthate", typeof(XanthateRecipe));
