@@ -24,14 +24,15 @@ namespace Eco.Mods.TechTree
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<DynamiteItem>(),          
+                new CraftingElement<DynamiteItem>(5),          
            
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<BlastingPowderItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<NitratesItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<OilItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<DirtItem>(typeof(BlastingEfficiencySkill), 2, BlastingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PlantFibersItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PlantFibersItem>(typeof(BlastingEfficiencySkill), 10, BlastingEfficiencySkill.MultiplicativeStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(DynamiteRecipe), Item.Get<DynamiteItem>().UILink(), 2, typeof(BlastingSpeedSkill));    
             this.Initialize("Dynamite", typeof(DynamiteRecipe));

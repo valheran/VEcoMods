@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
     Item                                     
     {
         public override string FriendlyName { get { return "Potash"; } }
-        public override string Description { get { return "Concentrated Nitrates from seaweed and wood ash"; } }
+        public override string Description { get { return "Concentrated Alkali from seaweed and wood ash"; } }
 
     }
 

@@ -18,21 +18,21 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Pipes;
 
     [RequiresSkill(typeof(BlastingSkill), 1)]   
-    public partial class BlastingPowderRecipe : Recipe
+    public partial class NitratesRecipe : Recipe
     {
         public BlastingPowderRecipe()
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<BlastingPowderItem>(2),           
+                new CraftingElement<NitratesItem>(2),           
             
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PotashItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CoalItem>(typeof(BlastingEfficiencySkill), 2, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PotashItem>(typeof(BlastingEfficiencySkill), 3, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<HideAshFertilizertem>(typeof(BlastingEfficiencySkill), 2, BlastingEfficiencySkill.MultiplicativeStrategy),
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(BlastingPowderRecipe), Item.Get<BlastingPowderItem>().UILink(), 2, typeof(BlastingSpeedSkill));    
+            this.CraftMinutes = CreateCraftTimeValue(typeof(NitratesRecipe), Item.Get<NitratesItem>().UILink(), 2, typeof(BlastingSpeedSkill));    
             this.Initialize("Blasting Powder", typeof(BlastingPowderRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class BlastingPowderItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Blasting Powder"; } }
-        public override string Description { get { return "The basic explosive."; } }
+        public override string FriendlyName { get { return "Nitrates"; } }
+        public override string Description { get { return "The base component of most explosives and other compounds."; } }
 
     }
 
