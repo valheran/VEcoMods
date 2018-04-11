@@ -20,7 +20,7 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(BlastingSkill), 1)]   
     public partial class NitratesRecipe : Recipe
     {
-        public BlastingPowderRecipe()
+        public NitratesRecipe()
         {
             this.Products = new CraftingElement[]
             {
@@ -30,10 +30,10 @@ namespace Eco.Mods.TechTree
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<PotashItem>(typeof(BlastingEfficiencySkill), 3, BlastingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<HideAshFertilizertem>(typeof(BlastingEfficiencySkill), 2, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<HideAshFertilizerItem>(typeof(BlastingEfficiencySkill), 2, BlastingEfficiencySkill.MultiplicativeStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(NitratesRecipe), Item.Get<NitratesItem>().UILink(), 2, typeof(BlastingSpeedSkill));    
-            this.Initialize("Blasting Powder", typeof(BlastingPowderRecipe));
+            this.Initialize("Nitrates", typeof(NitratesRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
@@ -43,7 +43,7 @@ namespace Eco.Mods.TechTree
     [Serialized]
     [Weight(1000)]      
                
-    public partial class BlastingPowderItem :
+    public partial class NitratesItem :
     Item                                     
     {
         public override string FriendlyName { get { return "Nitrates"; } }
