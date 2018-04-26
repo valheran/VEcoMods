@@ -26,7 +26,7 @@
     [Serialized, Weight(30000)]
     [MaxStackSize(10)]
     [RequiresTool(typeof(ShovelItem))]
-    public class SlagItem : BlockItem<StabilisedTailingsBlock>
+    public class SlagItem : BlockItem<SlagBlock>
     {
         public override string FriendlyName { get { return "Slag"; } }
         public override string Description { get { return "Nonmetallic waste left over after smelting"; } }

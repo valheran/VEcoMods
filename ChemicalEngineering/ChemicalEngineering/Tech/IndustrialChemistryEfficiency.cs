@@ -29,7 +29,7 @@
             new MultiplicativeStrategy(new float[] { 1, 1 - 0.2f, 1 - 0.35f, 1 - 0.5f, 1 - 0.65f, 1 - 0.8f });
         public static ModificationStrategy AdditiveStrategy =
             new AdditiveStrategy(new float[] { 0, 0.2f, 0.35f, 0.5f, 0.65f, 0.8f }); //consider changing as alternative to multiplicative so that there isnt a exponential return on multistep process
-        public static int[] SkillPointCost = { 10, 20, 35, 55, 70 }; 
+        public static int[] SkillPointCost = { 4, 6, 8, 10, 15 }; 
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
         public override int PrevRequiredPoint { get { return this.Level - 1 >= 0 && this.Level - 1 < this.MaxLevel ? SkillPointCost[this.Level - 1] : 0; } }
         public override int MaxLevel { get { return 4; } }
