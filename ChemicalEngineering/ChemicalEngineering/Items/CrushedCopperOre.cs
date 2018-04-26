@@ -25,12 +25,12 @@
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<CrushedCopperOreItem>(),
+                new CraftingElement<CrushedCopperOreItem>(10),
             
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<CopperOreItem>(typeof(MetallurgyEfficiencySkill), 1, MetallurgyEfficiencySkill.AdditiveStrategy),
+                new CraftingElement<CopperOreItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.AdditiveStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CrushedCopperOreRecipe), Item.Get<CrushedCopperOreItem>().UILink(), 3, typeof(MetallurgySpeedSkill));
             this.Initialize("Crushed Copper Ore", typeof(CrushedCopperOreRecipe));
