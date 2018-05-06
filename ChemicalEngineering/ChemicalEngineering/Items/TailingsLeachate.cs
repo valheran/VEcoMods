@@ -25,13 +25,14 @@
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<TailingsLeachateItem>(),
-                 new CraftingElement<StabilisedTailingsItem>(),
+                new CraftingElement<TailingsLeachateItem>(5),
+                 new CraftingElement<StabilisedTailingsItem>(7),
 
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<TailingsItem>(typeof(MetallurgyEfficiencySkill), 1, MetallurgyEfficiencySkill.AdditiveStrategy),
+                new CraftingElement<TailingsItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.AdditiveStrategy),
+                new CraftingElement<LeachingLiquorItem>(typeof(MetallurgyEfficiencySkill), 5, MetallurgyEfficiencySkill.MultiplicativeStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(TailingsLeachateRecipe), Item.Get<TailingsLeachateItem>().UILink(), 4, typeof(MetallurgySpeedSkill));
             this.Initialize("Tailings Leachate", typeof(TailingsLeachateRecipe));

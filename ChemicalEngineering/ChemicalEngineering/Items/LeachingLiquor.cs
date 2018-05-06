@@ -31,8 +31,8 @@
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<WoodPulpItem>(typeof(IndustrialChemistryEfficiencySkill), 1, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PitchItem>(typeof(IndustrialChemistryEfficiencySkill), 1, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),//placeholder, maybe try for making acid out of smelter gas
+                new CraftingElement<WoodPulpItem>(typeof(IndustrialChemistryEfficiencySkill), 10, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PitchItem>(typeof(IndustrialChemistryEfficiencySkill), 10, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),//placeholder, maybe try for making acid out of smelter gas
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(LeachingLiquorRecipe), Item.Get<LeachingLiquorItem>().UILink(), 2, typeof(IndustrialChemistrySpeedSkill));
             this.Initialize("Leaching Liquor", typeof(LeachingLiquorRecipe));

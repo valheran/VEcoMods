@@ -216,6 +216,7 @@ namespace Eco.Mods.TechTree
     //[RequireComponent(typeof(FuelSupplyComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
     [RequireComponent(typeof(PublicStorageComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     public partial class BlastingCollarObject : WorldObject
     {
         public override string FriendlyName { get { return "Blasting Collar"; } } 
@@ -293,6 +294,7 @@ namespace Eco.Mods.TechTree
     //[RequireComponent(typeof(FuelSupplyComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
     [RequireComponent(typeof(PublicStorageComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     public partial class BlastingCollarDecObject : WorldObject
     {
         public override string FriendlyName { get { return "Blasting Collar Declined"; } }
@@ -369,6 +371,7 @@ namespace Eco.Mods.TechTree
     //[RequireComponent(typeof(FuelSupplyComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
     [RequireComponent(typeof(PublicStorageComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     public partial class BlastingCollarIncObject : WorldObject
     {
         public override string FriendlyName { get { return "Blasting Collar Inclined"; } }

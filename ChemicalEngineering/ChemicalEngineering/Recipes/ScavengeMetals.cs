@@ -26,8 +26,8 @@
             this.Products = new CraftingElement[]
             {
                 new CraftingElement<GoldIngotItem>(1),
-                new CraftingElement<CopperIngotItem>(7),
-                new CraftingElement<IronIngotItem>(7),
+                new CraftingElement<CopperIngotItem>(3),
+                new CraftingElement<IronIngotItem>(2),
 
 
             };

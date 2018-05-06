@@ -49,7 +49,7 @@
         protected override void Initialize()
         {
             this.GetComponent<MinimapComponent>().Initialize("Crafting");
-            this.GetComponent<PowerConsumptionComponent>().Initialize(1000);
+            this.GetComponent<PowerConsumptionComponent>().Initialize(2500);
             this.GetComponent<PowerGridComponent>().Initialize(10, new ElectricPower());
             this.GetComponent<HousingComponent>().Set(GrindingMillItem.HousingVal);
 
