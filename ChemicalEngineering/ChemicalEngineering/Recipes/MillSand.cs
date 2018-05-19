@@ -18,7 +18,7 @@
     using Eco.World.Blocks;
     using Eco.Gameplay.Pipes;
 
-    [RequiresSkill(typeof(MetallurgySkill), 1)]
+    [RequiresSkill(typeof(MetallurgySkill), 3)]
     public partial class MillSandRecipe : Recipe
     {
         public MillSandRecipe()
@@ -32,7 +32,7 @@
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<StoneItem>(typeof(MetallurgyEfficiencySkill), 4, MetallurgyEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<StoneItem>(typeof(MetallurgyEfficiencySkill), 3, MetallurgyEfficiencySkill.MultiplicativeStrategy),
                 
 
             };
@@ -43,5 +43,31 @@
         }
     }
 
-   
+    [RequiresSkill(typeof(MetallurgySkill), 1)]
+    public partial class CrushSandRecipe : Recipe
+    {
+        public CrushSandRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<SandItem>(1),
+
+
+
+            };
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<StoneItem>(typeof(MetallurgyEfficiencySkill), 4, MetallurgyEfficiencySkill.MultiplicativeStrategy),
+
+
+            };
+            this.CraftMinutes = CreateCraftTimeValue(typeof(MillSandRecipe), this.UILink(), 2, typeof(MetallurgySpeedSkill));
+            this.Initialize("Mill Sand", typeof(MillSandRecipe));
+
+            CraftingComponent.AddRecipe(typeof(StampingBatteryObject), this);
+        }
+    }
+
+
+
 }

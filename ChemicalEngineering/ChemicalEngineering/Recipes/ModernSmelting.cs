@@ -18,7 +18,7 @@
     using Eco.World.Blocks;
     using Eco.Gameplay.Pipes;
 
-    [RequiresSkill(typeof(MetallurgySkill), 3)]
+    [RequiresSkill(typeof(BasicSmeltingSkill), 4)]
     public partial class ModernSmeltCopperRecipe : Recipe
     {
         public ModernSmeltCopperRecipe()
@@ -43,7 +43,7 @@
         }
     }
 
-    [RequiresSkill(typeof(MetallurgySkill), 2)]
+    [RequiresSkill(typeof(BasicSmeltingSkill), 4)]
     public partial class ImprovedSmeltCopperRecipe : Recipe
     {
         public ImprovedSmeltCopperRecipe()
@@ -67,7 +67,7 @@
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }
     }
-    [RequiresSkill(typeof(MetallurgySkill), 2)]
+    [RequiresSkill(typeof(BasicSmeltingSkill), 3)]
     public partial class ImprovedSmeltIronRecipe : Recipe
     {
         public ImprovedSmeltIronRecipe()

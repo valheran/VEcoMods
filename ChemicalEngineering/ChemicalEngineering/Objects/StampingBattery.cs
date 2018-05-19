@@ -29,9 +29,8 @@
     using Eco.Shared.Items;
     using Eco.Gameplay.Pipes;
     using Eco.World.Blocks;
-/*
+
     [Serialized]
-    [RequireComponent(typeof(PipeComponent))]
     [RequireComponent(typeof(AttachmentComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
     [RequireComponent(typeof(MinimapComponent))]
@@ -40,31 +39,20 @@
     [RequireComponent(typeof(PowerGridComponent))]
     [RequireComponent(typeof(PowerConsumptionComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    [RequireComponent(typeof(SolidGroundComponent))]
-    public partial class ReactorVesselObject :
+    //[RequireComponent(typeof(SolidGroundComponent))]
+    public partial class StampingBatteryObject :
         WorldObject
     {
-        public override string FriendlyName { get { return "ReactorVessel"; } }
+        public override string FriendlyName { get { return "StampingBattery"; } }
 
 
         protected override void Initialize()
         {
             this.GetComponent<MinimapComponent>().Initialize("Crafting");
-            this.GetComponent<PowerConsumptionComponent>().Initialize(500);
-            this.GetComponent<PowerGridComponent>().Initialize(10, new ElectricPower());
-            this.GetComponent<HousingComponent>().Set(ReactorVesselItem.HousingVal);
+            this.GetComponent<PowerConsumptionComponent>().Initialize(400);
+            this.GetComponent<PowerGridComponent>().Initialize(10, new MechanicalPower());
+            this.GetComponent<HousingComponent>().Set(StampingBatteryItem.HousingVal);
 
-
-            var tankList = new List<LiquidTank>();
-
-            tankList.Add(new LiquidProducer("Chimney", typeof(SmogItem), 100,
-                    null,
-                    this.Occupancy.Find(x => x.Name == "ChimneyOut"),
-                        (float)(0.3f * SmogItem.SmogItemsPerCO2PPM) / TimeUtil.SecondsPerHour));
-
-
-
-            this.GetComponent<PipeComponent>().Initialize(tankList);
 
         }
 
@@ -76,12 +64,12 @@
     }
 
     [Serialized]
-    public partial class ReactorVesselItem : WorldObjectItem<ReactorVesselObject>
+    public partial class StampingBatteryItem : WorldObjectItem<StampingBatteryObject>
     {
-        public override string FriendlyName { get { return "ReactorVessel"; } }
-        public override string Description { get { return "A complex set of machinery for creating equally complex things."; } }
+        public override string FriendlyName { get { return "Stamping Battery"; } }
+        public override string Description { get { return "Reciprocating Weighted pistons for smashing rocks"; } }
 
-        static ReactorVesselItem()
+        static StampingBatteryItem()
         {
 
 
@@ -105,28 +93,29 @@
     }
 
 
-    [RequiresSkill(typeof(IndustrialChemistrySkill), 1)]
-    public partial class ReactorVesselRecipe : Recipe
+    [RequiresSkill(typeof(MetallurgySkill), 1)]
+    public partial class StampingBatteryRecipe : Recipe
     {
-        public ReactorVesselRecipe()
+        public StampingBatteryRecipe()
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<ReactorVesselItem>(),
+                new CraftingElement<StampingBatteryItem>(),
             };
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<ConcreteItem>(typeof(IndustrialChemistryEfficiencySkill), 25, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<SteelItem>(typeof(IndustrialChemistryEfficiencySkill), 30, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<BrickItem>(typeof(MetallurgyEfficiencySkill), 25, MetallurgyEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<IronIngotItem>(typeof(MetallurgyEfficiencySkill), 20, MetallurgyEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<HewnLogItem>(typeof(MetallurgyEfficiencySkill), 20, MetallurgyEfficiencySkill.MultiplicativeStrategy),
+
             };
-            SkillModifiedValue value = new SkillModifiedValue(180, IndustrialChemistrySpeedSkill.MultiplicativeStrategy, typeof(IndustrialChemistrySpeedSkill), Localizer.Do("craft time"));
-            SkillModifiedValueManager.AddBenefitForObject(typeof(ReactorVesselRecipe), Item.Get<ReactorVesselItem>().UILink(), value);
-            SkillModifiedValueManager.AddSkillBenefit(Item.Get<ReactorVesselItem>().UILink(), value);
+            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.Do("craft time"));
+            SkillModifiedValueManager.AddBenefitForObject(typeof(StampingBatteryRecipe), Item.Get<StampingBatteryItem>().UILink(), value);
+            SkillModifiedValueManager.AddSkillBenefit(Item.Get<StampingBatteryItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("ReactorVessel", typeof(ReactorVesselRecipe));
-            CraftingComponent.AddRecipe(typeof(MachineShopObject), this);
+            this.Initialize("StampingBattery", typeof(StampingBatteryRecipe));
+            CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }
-    */
 }

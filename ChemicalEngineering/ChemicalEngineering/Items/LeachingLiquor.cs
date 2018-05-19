@@ -37,7 +37,7 @@
             this.CraftMinutes = CreateCraftTimeValue(typeof(LeachingLiquorRecipe), Item.Get<LeachingLiquorItem>().UILink(), 2, typeof(IndustrialChemistrySpeedSkill));
             this.Initialize("Leaching Liquor", typeof(LeachingLiquorRecipe));
 
-            CraftingComponent.AddRecipe(typeof(ReactorVesselObject), this);
+            CraftingComponent.AddRecipe(typeof(OilRefineryObject), this);
         }
     }
 

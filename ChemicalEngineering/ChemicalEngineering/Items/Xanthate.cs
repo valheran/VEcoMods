@@ -36,7 +36,7 @@
             this.CraftMinutes = CreateCraftTimeValue(typeof(XanthateRecipe), Item.Get<XanthateItem>().UILink(), 2, typeof(IndustrialChemistrySpeedSkill));
             this.Initialize("Xanthate", typeof(XanthateRecipe));
 
-            CraftingComponent.AddRecipe(typeof(ReactorVesselObject), this);
+            CraftingComponent.AddRecipe(typeof(OilRefineryObject), this);
         }
     }
 

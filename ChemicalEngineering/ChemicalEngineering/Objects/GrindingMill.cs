@@ -39,7 +39,7 @@
     [RequireComponent(typeof(PowerGridComponent))]
     [RequireComponent(typeof(PowerConsumptionComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    [RequireComponent(typeof(SolidGroundComponent))]
+    //[RequireComponent(typeof(SolidGroundComponent))]
     public partial class GrindingMillObject :
         WorldObject
     {
@@ -67,7 +67,7 @@
     public partial class GrindingMillItem : WorldObjectItem<GrindingMillObject>
     {
         public override string FriendlyName { get { return "GrindingMill"; } }
-        public override string Description { get { return "A complex set of machinery for creating equally complex things."; } }
+        public override string Description { get { return "A Semi Autogenous Grinding mill- mash things into very, very small pieces."; } }
 
         static GrindingMillItem()
         {

@@ -35,6 +35,27 @@
             this.CraftMinutes = CreateCraftTimeValue(typeof(CrushedCopperOreRecipe), Item.Get<CrushedCopperOreItem>().UILink(), 3, typeof(MetallurgySpeedSkill));
             this.Initialize("Crushed Copper Ore", typeof(CrushedCopperOreRecipe));
 
+            CraftingComponent.AddRecipe(typeof(StampingBatteryObject), this);
+        }
+    }
+
+    [RequiresSkill(typeof(MetallurgySkill), 3)]
+    public partial class GrindCopperOreRecipe : Recipe
+    {
+        public GrindCopperOreRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<CrushedCopperOreItem>(12),
+
+            };
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<CopperOreItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.AdditiveStrategy),
+            };
+            this.CraftMinutes = CreateCraftTimeValue(typeof(GrindCopperOreRecipe), Item.Get<CrushedCopperOreItem>().UILink(), 2, typeof(MetallurgySpeedSkill));
+            this.Initialize("Crushed Copper Ore", typeof(GrindCopperOreRecipe));
+
             CraftingComponent.AddRecipe(typeof(GrindingMillObject), this);
         }
     }

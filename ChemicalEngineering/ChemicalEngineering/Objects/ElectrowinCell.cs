@@ -40,7 +40,7 @@
     [RequireComponent(typeof(PowerGridComponent))]
     [RequireComponent(typeof(PowerConsumptionComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    [RequireComponent(typeof(SolidGroundComponent))]
+    //[RequireComponent(typeof(SolidGroundComponent))]
     public partial class ElectrowinCellObject :
         WorldObject
     {

@@ -35,10 +35,30 @@
             this.CraftMinutes = CreateCraftTimeValue(typeof(CrushedGoldOreRecipe), Item.Get<CrushedGoldOreItem>().UILink(), 3, typeof(MetallurgySpeedSkill));
             this.Initialize("Crushed Gold Ore", typeof(CrushedGoldOreRecipe));
 
-            CraftingComponent.AddRecipe(typeof(GrindingMillObject), this);
+            CraftingComponent.AddRecipe(typeof(StampingBatteryObject), this);
         }
     }
 
+    [RequiresSkill(typeof(MetallurgySkill), 4)]
+    public partial class GrindGoldOreRecipe : Recipe
+    {
+        public GrindGoldOreRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<CrushedGoldOreItem>(12),
+
+            };
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<GoldOreItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.AdditiveStrategy),
+            };
+            this.CraftMinutes = CreateCraftTimeValue(typeof(GrindGoldOreRecipe), Item.Get<CrushedGoldOreItem>().UILink(), 2, typeof(MetallurgySpeedSkill));
+            this.Initialize("Crushed Gold Ore", typeof(GrindGoldOreRecipe));
+
+            CraftingComponent.AddRecipe(typeof(GrindingMillObject), this);
+        }
+    }
 
     [Serialized]
     [Weight(30000)]
