@@ -61,8 +61,8 @@
 
 
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(MillSandRecipe), this.UILink(), 2, typeof(MetallurgySpeedSkill));
-            this.Initialize("Mill Sand", typeof(MillSandRecipe));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(CrushSandRecipe), this.UILink(), 2, typeof(MetallurgySpeedSkill));
+            this.Initialize("Crush Sand", typeof(CrushSandRecipe));
 
             CraftingComponent.AddRecipe(typeof(StampingBatteryObject), this);
         }
