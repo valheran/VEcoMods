@@ -18,9 +18,9 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Pipes;
 
     [RequiresSkill(typeof(BlastingSkill), 2)]   
-    public partial class DynamiteRecipe : Recipe
+    public partial class OilDynamiteRecipe : Recipe
     {
-        public DynamiteRecipe()
+        public OilDynamiteRecipe()
         {
             this.Products = new CraftingElement[]
             {
@@ -41,6 +41,29 @@ namespace Eco.Mods.TechTree
         }
     }
 
+    [RequiresSkill(typeof(BlastingSkill), 2)]
+    public partial class DynamiteRecipe : Recipe
+    {
+        public DynamiteRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<DynamiteItem>(5),
+
+            };
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<NitratesItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<TallowItem>(typeof(BlastingEfficiencySkill), 5, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<DirtItem>(typeof(BlastingEfficiencySkill), 2, BlastingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PlantFibersItem>(typeof(BlastingEfficiencySkill), 10, BlastingEfficiencySkill.MultiplicativeStrategy),
+            };
+            this.CraftMinutes = CreateCraftTimeValue(typeof(DynamiteRecipe), Item.Get<DynamiteItem>().UILink(), 2, typeof(BlastingSpeedSkill));
+            this.Initialize("Dynamite", typeof(DynamiteRecipe));
+
+            CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
+        }
+    }
 
     [Serialized]
     [Weight(2000)]      
