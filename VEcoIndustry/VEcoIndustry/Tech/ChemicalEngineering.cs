@@ -23,7 +23,7 @@
     public partial class ChemicalEngineeringSkill : Skill
     {
         public override string FriendlyName { get { return "Chemical Engineering"; } }
-        public override string Description { get { return Localizer.Do(""); } }
+        public override string Description { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 2, 2, 4, 8 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }

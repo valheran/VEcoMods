@@ -51,7 +51,7 @@ namespace Eco.Mods.TechTree
     {
         public override string FriendlyName { get { return "Prospector Drill"; } }
         public override string Description { get { return "Drill to retrieve cores and identify rock. range 50 blocks"; } }
-        private static SkillModifiedValue skilledRepairCost = new SkillModifiedValue(50, AdvancedMiningSkill.MultiplicativeStrategy, typeof(AdvancedMiningSkill), Localizer.Do("repair cost"));
+        private static SkillModifiedValue skilledRepairCost = new SkillModifiedValue(50, AdvancedMiningSkill.MultiplicativeStrategy, typeof(AdvancedMiningSkill), Localizer.DoStr("repair cost"));
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
         public override float DurabilityRate { get { return DurabilityMax / 50f; } }
         private static SkillModifiedValue caloriesBurn = CreateCalorieValue(500, typeof(AdvancedMiningEfficiencySkill), typeof(ProspectorItem), new ProspectorItem().UILink());

@@ -120,7 +120,7 @@
                 new CraftingElement<ConcreteItem>(typeof(IndustrialChemistryEfficiencySkill), 25, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<SteelItem>(typeof(IndustrialChemistryEfficiencySkill), 30, IndustrialChemistryEfficiencySkill.MultiplicativeStrategy),
             };
-            SkillModifiedValue value = new SkillModifiedValue(180, IndustrialChemistrySpeedSkill.MultiplicativeStrategy, typeof(IndustrialChemistrySpeedSkill), Localizer.Do("craft time"));
+            SkillModifiedValue value = new SkillModifiedValue(180, IndustrialChemistrySpeedSkill.MultiplicativeStrategy, typeof(IndustrialChemistrySpeedSkill), Localizer.DoStr("craft time"));
             SkillModifiedValueManager.AddBenefitForObject(typeof(ReactorVesselRecipe), Item.Get<ReactorVesselItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ReactorVesselItem>().UILink(), value);
             this.CraftMinutes = value;

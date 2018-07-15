@@ -122,7 +122,7 @@
                 new CraftingElement<SteelItem>(typeof(MetallurgyEfficiencySkill), 15, MetallurgyEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<RivetItem>(typeof(MetallurgyEfficiencySkill), 30, MetallurgyEfficiencySkill.MultiplicativeStrategy),
             };
-            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.Do("craft time"));
+            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.DoStr("craft time"));
             SkillModifiedValueManager.AddBenefitForObject(typeof(LeachingVatRecipe), Item.Get<LeachingVatItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LeachingVatItem>().UILink(), value);
             this.CraftMinutes = value;

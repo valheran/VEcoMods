@@ -122,7 +122,7 @@
                 new CraftingElement<ServoItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<SteelItem>(typeof(MetallurgyEfficiencySkill), 20, MetallurgyEfficiencySkill.MultiplicativeStrategy),
             };
-            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.Do("craft time"));
+            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.DoStr("craft time"));
             SkillModifiedValueManager.AddBenefitForObject(typeof(FlotationCellRecipe), Item.Get<FlotationCellItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<FlotationCellItem>().UILink(), value);
             this.CraftMinutes = value;

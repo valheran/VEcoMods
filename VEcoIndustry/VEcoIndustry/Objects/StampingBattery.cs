@@ -110,7 +110,7 @@
                 new CraftingElement<HewnLogItem>(typeof(MetallurgyEfficiencySkill), 20, MetallurgyEfficiencySkill.MultiplicativeStrategy),
 
             };
-            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.Do("craft time"));
+            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.DoStr("craft time"));
             SkillModifiedValueManager.AddBenefitForObject(typeof(StampingBatteryRecipe), Item.Get<StampingBatteryItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<StampingBatteryItem>().UILink(), value);
             this.CraftMinutes = value;

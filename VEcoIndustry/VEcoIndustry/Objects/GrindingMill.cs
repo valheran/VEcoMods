@@ -110,7 +110,7 @@
                 new CraftingElement<RivetItem>(typeof(MetallurgyEfficiencySkill), 50, MetallurgyEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<SteelItem>(typeof(MetallurgyEfficiencySkill), 15, MetallurgyEfficiencySkill.MultiplicativeStrategy),
             };
-            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.Do("craft time"));
+            SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.DoStr("craft time"));
             SkillModifiedValueManager.AddBenefitForObject(typeof(GrindingMillRecipe), Item.Get<GrindingMillItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<GrindingMillItem>().UILink(), value);
             this.CraftMinutes = value;

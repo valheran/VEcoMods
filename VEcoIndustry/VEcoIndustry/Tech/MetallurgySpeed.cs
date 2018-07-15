@@ -23,7 +23,7 @@
     public partial class MetallurgySpeedSkill : Skill
     {
         public override string FriendlyName { get { return "Metallurgy Speed"; } }
-        public override string Description { get { return Localizer.Do(""); } }
+        public override string Description { get { return Localizer.DoStr(""); } }
 
         public static ModificationStrategy MultiplicativeStrategy =
             new MultiplicativeStrategy(new float[] { 1, 1 - 0.2f, 1 - 0.35f, 1 - 0.5f, 1 - 0.65f, 1 - 0.8f });
