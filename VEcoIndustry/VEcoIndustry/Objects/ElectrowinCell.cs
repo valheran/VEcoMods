@@ -46,7 +46,15 @@
     {
         public override string FriendlyName { get { return "Electrowinning Cell"; } }
 
-
+        static ElectrowinCellObject()
+        {
+            WorldObject.AddOccupancy<ElectrowinCellObject>(new List<BlockOccupancy>()
+                {
+                new BlockOccupancy(new Vector3i(0,0,0)),
+                new BlockOccupancy(new Vector3i(0,0,-1)),
+                new BlockOccupancy(new Vector3i(0,0,-2)),
+                });
+        }
         protected override void Initialize()
         {
             this.GetComponent<MinimapComponent>().Initialize("Crafting");
@@ -54,12 +62,7 @@
             this.GetComponent<PowerGridComponent>().Initialize(10, new ElectricPower());
             this.GetComponent<HousingComponent>().Set(ElectrowinCellItem.HousingVal);
 
-            WorldObject.AddOccupancy<ElectrowinCellObject>(new List<BlockOccupancy>()
-            {
-                new BlockOccupancy(new Vector3i(0,0,0)),
-                new BlockOccupancy(new Vector3i(1,0,0)),
-                new BlockOccupancy(new Vector3i(2,0,0)),
-            });
+           
             /* Ultimately would like this to be feed by a liquid instead of item
             var tankList = new List<LiquidTank>();
 
