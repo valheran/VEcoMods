@@ -49,7 +49,7 @@ namespace Eco.Mods.TechTree
         public override string FriendlyName { get { return "Airleg Drill"; } }
         public override string Description { get { return "Powered drill for boring into rock"; } }
         public override float DurabilityRate { get { return DurabilityMax / 500f; } }
-        private float MaxDrill = 10; //maximum drill range  may be able to hook this in with drilling efficieny additive strategy at some point to extend range
+        private float MaxDrill = 15; //maximum drill range  may be able to hook this in with drilling efficieny additive strategy at some point to extend range
         private static SkillModifiedValue caloriesBurn = CreateCalorieValue(20, typeof(AdvancedMiningEfficiencySkill), typeof(AirlegItem), new AirlegItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
         public override Item RepairItem { get { return Item.Get<IronIngotItem>(); } }
