@@ -90,8 +90,15 @@ namespace Eco.Mods.TechTree
     Item                                     
     {
         public override string FriendlyName { get { return "Soap"; } }
-        public override string Description { get { return "Mix with water to make a cleansing lather"; } }
+        public override string Description { get { return "Mix with water to make a cleansing lather. Might even give you a little boost"; } }
 
+        public override void OnUsed(Player player, ItemStack itemStack)
+        {
+
+            player.User.XP = player.User.XP + 0.1f;
+            itemStack.TryModifyStack(player.User, -1);
+        }
+        
     }
 
 }
