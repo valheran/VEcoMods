@@ -26,7 +26,7 @@
             this.Products = new CraftingElement[]
             {
                 new CraftingElement<TailingsLeachateItem>(5),
-                 new CraftingElement<StabilisedTailingsItem>(7),
+                 new CraftingElement<StabilisedTailingsItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.AdditiveStrategy),
 
             };
             this.Ingredients = new CraftingElement[]

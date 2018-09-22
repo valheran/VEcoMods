@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<PotashItem>(typeof(ChloralkaliEfficiencySkill), 5, ChloralkaliEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<BeansItem>(typeof(ChloralkaliEfficiencySkill), 50, ChloralkaliEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<BeansItem>(typeof(ChloralkaliEfficiencySkill), 30, ChloralkaliEfficiencySkill.MultiplicativeStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CrudeSoapRecipe), Item.Get<SoapItem>().UILink(), 2, typeof(ChloralkaliSpeedSkill));    
             this.Initialize("Soap", typeof(CrudeSoapRecipe));

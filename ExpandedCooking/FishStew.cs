@@ -39,7 +39,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FishScrapsItem>(typeof(CampfireCreationsEfficiencySkill), 30, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 40, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 10, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
             };
             this.Initialize("Fish Stew", typeof(FishStewRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(FishStewRecipe), this.UILink(), 9, typeof(CampfireCreationsSpeedSkill));

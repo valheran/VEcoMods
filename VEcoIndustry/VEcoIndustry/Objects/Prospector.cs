@@ -25,8 +25,8 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
 
-    [RequiresSkill(typeof(AdvancedMiningSkill), 3)]   //_If_ReqLevel_
-    [RepairRequiresSkill(typeof(AdvancedMiningSkill), 4)]
+    [RequiresSkill(typeof(AdvancedMiningSkill), 1)]   //_If_ReqLevel_
+    [RepairRequiresSkill(typeof(AdvancedMiningSkill), 2)]
     public partial class ProspectorRecipe : Recipe
     {
         public ProspectorRecipe()
@@ -34,8 +34,8 @@ namespace Eco.Mods.TechTree
             this.Products = new CraftingElement[] { new CraftingElement<ProspectorItem>() };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<CopperIngotItem>(typeof(AdvancedMiningEfficiencySkill), 40, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<IronPipeItem>(typeof(AdvancedMiningEfficiencySkill), 50, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<CopperIngotItem>(typeof(AdvancedMiningEfficiencySkill), 30, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<IronPipeItem>(typeof(AdvancedMiningEfficiencySkill), 30, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ProspectorRecipe), Item.Get<ProspectorItem>().UILink(), 30, typeof(AdvancedMiningSpeedSkill));
             this.Initialize("Prospector", typeof(ProspectorRecipe));
@@ -54,7 +54,7 @@ namespace Eco.Mods.TechTree
         private static SkillModifiedValue skilledRepairCost = new SkillModifiedValue(50, AdvancedMiningSkill.MultiplicativeStrategy, typeof(AdvancedMiningSkill), Localizer.DoStr("repair cost"));
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
         public override float DurabilityRate { get { return DurabilityMax / 50f; } }
-        private static SkillModifiedValue caloriesBurn = CreateCalorieValue(500, typeof(AdvancedMiningEfficiencySkill), typeof(ProspectorItem), new ProspectorItem().UILink());
+        private static SkillModifiedValue caloriesBurn = CreateCalorieValue(300, typeof(AdvancedMiningEfficiencySkill), typeof(ProspectorItem), new ProspectorItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
         public override Item RepairItem { get { return Item.Get<IronPipeItem>(); } }
         public override int FullRepairAmount { get { return 50; } }

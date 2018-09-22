@@ -39,9 +39,9 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<RawFishItem>(typeof(MeatPrepEfficiencySkill), 1, MeatPrepEfficiencySkill.MultiplicativeStrategy), 
+                new CraftingElement<RawFishItem>(typeof(FishCleaningEfficiencySkill), 1, FishCleaningEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(FishScrapsRecipe), Item.Get<FishScrapsItem>().UILink(), 2, typeof(MeatPrepSpeedSkill)); 
+            this.CraftMinutes = CreateCraftTimeValue(typeof(FishScrapsRecipe), Item.Get<FishScrapsItem>().UILink(), 2, typeof(FishCleaningSpeedSkill)); 
             this.Initialize("Fish Scraps", typeof(FishScrapsRecipe));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }

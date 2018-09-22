@@ -127,8 +127,7 @@
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<ConcreteItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CopperWiringItem>(typeof(MetallurgyEfficiencySkill), 6, MetallurgyEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<ServoItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<CopperWiringItem>(typeof(MetallurgyEfficiencySkill), 30, MetallurgyEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<SteelItem>(typeof(MetallurgyEfficiencySkill), 30, MetallurgyEfficiencySkill.MultiplicativeStrategy),
             };
             SkillModifiedValue value = new SkillModifiedValue(180, MetallurgySpeedSkill.MultiplicativeStrategy, typeof(MetallurgySpeedSkill), Localizer.DoStr("craft time"));

@@ -36,7 +36,7 @@
                 
 
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(MillSandRecipe), this.UILink(), 2, typeof(MetallurgySpeedSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(MillSandRecipe), this.UILink(), 1, typeof(MetallurgySpeedSkill));
             this.Initialize("Mill Sand", typeof(MillSandRecipe));
 
             CraftingComponent.AddRecipe(typeof(GrindingMillObject), this);

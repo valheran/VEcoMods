@@ -200,7 +200,6 @@
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<ConcreteItem>(typeof(MetallurgyEfficiencySkill), 10, MetallurgyEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<ElectricMotorItem>(typeof(MetallurgyEfficiencySkill), 6, MetallurgyEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<SteelItem>(typeof(MetallurgyEfficiencySkill), 15, MetallurgyEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<RivetItem>(typeof(MetallurgyEfficiencySkill), 30, MetallurgyEfficiencySkill.MultiplicativeStrategy),
             };

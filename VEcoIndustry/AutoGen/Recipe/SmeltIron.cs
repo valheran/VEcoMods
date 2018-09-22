@@ -19,12 +19,13 @@
             this.Products = new CraftingElement[]
             {
                new CraftingElement<IronIngotItem>(2),
-               new CraftingElement<SlagItem>(8),
+               new CraftingElement<SlagItem>(typeof(BasicSmeltingEfficiencySkill), 9, BasicSmeltingEfficiencySkill.MultiplicativeStrategy),
+               new CraftingElement<TailingsItem>(typeof(BasicSmeltingEfficiencySkill), 2, BasicSmeltingEfficiencySkill.MultiplicativeStrategy),
             };
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<IronOreItem>(typeof(BasicSmeltingEfficiencySkill), 10, BasicSmeltingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<SandItem>(typeof(BasicSmeltingEfficiencySkill), 4, BasicSmeltingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<SandItem>(typeof(BasicSmeltingEfficiencySkill), 8, BasicSmeltingEfficiencySkill.MultiplicativeStrategy),
             };
             this.Initialize("Smelt Iron", typeof(SmeltIronRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(SmeltIronRecipe), this.UILink(), 0.5f, typeof(BasicSmeltingSpeedSkill));

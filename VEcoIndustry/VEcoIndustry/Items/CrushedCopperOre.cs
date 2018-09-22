@@ -25,7 +25,7 @@
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<CrushedCopperOreItem>(10),
+                new CraftingElement<CrushedCopperOreItem>(8),
             
             };
             this.Ingredients = new CraftingElement[]
@@ -46,7 +46,7 @@
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<CrushedCopperOreItem>(12),
+                new CraftingElement<CrushedCopperOreItem>(10),
 
             };
             this.Ingredients = new CraftingElement[]

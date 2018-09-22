@@ -189,7 +189,7 @@
     }
 
 
-    [RequiresSkill(typeof(MetallurgySkill), 1)]
+    [RequiresSkill(typeof(MetallurgySkill), 3)]
     public partial class GrindingMillRecipe : Recipe
     {
         public GrindingMillRecipe()

@@ -21,7 +21,7 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(AdvancedMiningSkill), 1)]    
     public partial class AdvancedMiningEfficiencySkill : Skill
     {
-        public override string FriendlyName { get { return "Advaqnced Mining Efficiency"; } }
+        public override string FriendlyName { get { return "Advanced Mining Efficiency"; } }
         public override string Description { get { return ""; } }
 
         public static ModificationStrategy MultiplicativeStrategy = 

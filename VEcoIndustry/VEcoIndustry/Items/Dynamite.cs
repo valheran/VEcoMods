@@ -29,8 +29,8 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<NitratesItem>(typeof(NitroChemEfficiencySkill), 5, NitroChemEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<GlycerolItem>(typeof(NitroChemEfficiencySkill), 5, NitroChemEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<NitratesItem>(typeof(NitroChemEfficiencySkill), 2, NitroChemEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<GlycerolItem>(typeof(NitroChemEfficiencySkill), 2, NitroChemEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<DirtItem>(typeof(NitroChemEfficiencySkill), 2, NitroChemEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<PlantFibersItem>(typeof(NitroChemEfficiencySkill), 10, NitroChemEfficiencySkill.MultiplicativeStrategy),
             };

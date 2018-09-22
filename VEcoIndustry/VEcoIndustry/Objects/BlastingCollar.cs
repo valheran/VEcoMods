@@ -277,8 +277,8 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<IronIngotItem>(typeof(AdvancedMiningEfficiencySkill), 5, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PitchItem>(typeof(AdvancedMiningEfficiencySkill), 10, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<IronPipeItem>(typeof(AdvancedMiningEfficiencySkill), 2, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PitchItem>(typeof(AdvancedMiningEfficiencySkill), 5, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
                  
             };
 
@@ -355,8 +355,8 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<IronIngotItem>(typeof(AdvancedMiningEfficiencySkill), 5, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PitchItem>(typeof(AdvancedMiningEfficiencySkill), 10, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<IronPipeItem>(typeof(AdvancedMiningEfficiencySkill), 2, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PitchItem>(typeof(AdvancedMiningEfficiencySkill), 5, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BlastingCollarDecRecipe), Item.Get<BlastingCollarDecItem>().UILink(), 2, typeof(AdvancedMiningSpeedSkill));
@@ -432,8 +432,8 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<IronIngotItem>(typeof(AdvancedMiningEfficiencySkill), 5, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PitchItem>(typeof(AdvancedMiningEfficiencySkill), 10, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<IronPipeItem>(typeof(AdvancedMiningEfficiencySkill), 2, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PitchItem>(typeof(AdvancedMiningEfficiencySkill), 5, AdvancedMiningEfficiencySkill.MultiplicativeStrategy),
 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BlastingCollarIncRecipe), Item.Get<BlastingCollarIncItem>().UILink(), 2, typeof(AdvancedMiningSpeedSkill));
