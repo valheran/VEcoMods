@@ -5,11 +5,13 @@ The move to 7.7 saw some fundamental changes, so a 7.6.3 compatible version now 
 
 # Installation
 Each mod is contained in its own folder. To install, simply copy folder of the desired mod into the "Mods" directory of the ECO server.
+The Autogen folder contains any changes to existing recipes/items etc.
 
 Any client connecting to this server will automatically pull anything required to run the mod
 
 # Expanded Cooking (7.7)
-This is a simple mod that contains additional recipes, particularly those that a based on fish. Includes higher tiers of fishmeat (equivalent to prepared meat and prime cut)
+This is a simple mod that contains additional recipes, particularly those that a based on fish. Includes higher tiers of fishmeat (equivalent to prepared meat and prime cut).
+No Autogen items are changed for this mod.
 
 # VEcoIndustry (7.7)
 Work in progress and is a little more complicated, now combining what was previously Advanced Mining and Chemical Engineering
