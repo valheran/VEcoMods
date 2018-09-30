@@ -1,16 +1,17 @@
 # VEcoMods
 Mods for Eco
-This is a repo for mods for ECO at various stages of completeness
+This is a repo for mods for ECO at various stages of completeness.
+The move to 7.7 saw some fundamental changes, so a 7.6.3 compatible version now sits in its own branch- this will have no further updates
 
 # Installation
 Each mod is contained in its own folder. To install, simply copy folder of the desired mod into the "Mods" directory of the ECO server.
 
 Any client connecting to this server will automatically pull anything required to run the mod
 
-# Expanded Cooking (7.6)
+# Expanded Cooking (7.7)
 This is a simple mod that contains additional recipes, particularly those that a based on fish. Includes higher tiers of fishmeat (equivalent to prepared meat and prime cut)
 
-# VEcoIndustry (7.6)
+# VEcoIndustry (7.7)
 Work in progress and is a little more complicated, now combining what was previously Advanced Mining and Chemical Engineering
 Implements drill and blast mining techniques (such as stoping) for both horizontal and vertical mining. Includes items for creating explosives, as well as tools for drilling and controlling blasting. Blasting allows for multiple mineable blocks to be broken at once after some preparation.
 Also introduces a tool to facilitate prospecting for decent orebodies
